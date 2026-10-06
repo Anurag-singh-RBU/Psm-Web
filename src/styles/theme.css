@@ -1,0 +1,199 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme static {
+  --color-*: initial;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-brand-50: #FAFAFA;
+  --color-brand-100: #e4e7ff;
+  --color-brand-200: #cbd0ff;
+  --color-brand-300: #aab1fc;
+  --color-brand-400: #9C96FF;
+  --color-brand-500: #6b75f3;
+  --color-brand-600: #4f57e8;
+  --color-brand-700: #4047cc;
+  --color-brand-800: #3539a5;
+  --color-brand-900: #2e3282;
+  --color-brand-950: #1c1e4f;
+
+  --color-cream-50: #fffdf9;
+  --color-cream-100: #fcf8ef;
+  --color-cream-200: #f7f0e1;
+  --color-cream-300: #ede3ce;
+  --color-cream-400: #dacdb1;
+  --color-cream-500: #bfb08d;
+
+  --color-ink-50: #f4f4f8;
+  --color-ink-100: #e7e7ef;
+  --color-ink-200: #cfcfdd;
+  --color-ink-300: #b0b0c4;
+  --color-ink-400: #a7abb5;
+  --color-ink-500: #6f6d86;
+  --color-ink-600: #55536e;
+  --color-ink-700: #3c3a55;
+  --color-ink-800: #2a2842;
+  --color-ink-900: #1c1a33;
+  --color-ink-950: #110f22;
+
+  --color-orange-50: #fff3ea;
+  --color-orange-100: #ffe3cc;
+  --color-orange-500: #f2711c;
+  --color-orange-600: #d95a0b;
+  --color-orange-700: #b04608;
+
+  --color-gold-50: #fff8e5;
+  --color-gold-100: #feedbd;
+  --color-gold-500: #f5b22e;
+  --color-gold-600: #d9921a;
+  --color-gold-800: #7f5208;
+
+  --color-green-50: #e9f8f0;
+  --color-green-100: #cff0de;
+  --color-green-500: #4ADE80;
+  --color-green-600: #1f8a5b;
+  --color-green-700: #187048;
+
+  --color-red-50: #fdeded;
+  --color-red-100: #fad5d6;
+  --color-red-500: #FF6B6B;
+  --color-red-600: #d1292e;
+  --color-red-700: #a81f24;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --background: var(--color-brand-50);
+    --foreground: var(--color-ink-800);
+
+    --card: var(--color-cream-50);
+    --card-foreground: var(--color-ink-900);
+
+    --muted: var(--color-cream-200);
+    --muted-foreground: var(--color-ink-500);
+    --placeholder: var(--color-ink-500);
+
+    --primary: var(--color-brand-600);
+    --primary-hover: var(--color-brand-700);
+    --primary-active: var(--color-brand-800);
+    --primary-foreground: var(--color-white);
+
+    --secondary: var(--color-brand-100);
+    --secondary-hover: var(--color-brand-200);
+    --secondary-foreground: var(--color-brand-700);
+
+    --selected: var(--color-brand-400);
+    --selected-foreground: var(--color-ink-900);
+
+    --border: var(--color-cream-300);
+    --border-strong: var(--color-ink-900);
+    --input: var(--color-ink-300);
+    --ring: var(--color-brand-600);
+
+    --success: var(--color-green-600);
+    --success-soft: var(--color-green-100);
+    --success-foreground: var(--color-green-700);
+
+    --warning: var(--color-gold-600);
+    --warning-soft: var(--color-gold-100);
+    --warning-foreground: var(--color-gold-800);
+
+    --destructive: var(--color-red-600);
+    --destructive-soft: var(--color-red-100);
+    --destructive-foreground: var(--color-red-700);
+
+    --info: var(--color-brand-600);
+    --info-soft: var(--color-brand-100);
+    --info-foreground: var(--color-brand-700);
+
+    --overlay: color-mix(in srgb, var(--color-ink-950) 50%, transparent);
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --background: var(--color-ink-950);
+    --foreground: var(--color-cream-100);
+
+    --card: var(--color-ink-900);
+    --card-foreground: var(--color-cream-100);
+
+    --muted: var(--color-ink-800);
+    --muted-foreground: var(--color-ink-400);
+    --placeholder: var(--color-ink-500);
+
+    --primary: var(--color-brand-600);
+    --primary-hover: var(--color-brand-500);
+    --primary-active: var(--color-brand-400);
+    --primary-foreground: var(--color-white);
+
+    --secondary: var(--color-brand-900);
+    --secondary-hover: var(--color-brand-800);
+    --secondary-foreground: var(--color-brand-200);
+
+    --selected: var(--color-brand-800);
+    --selected-foreground: var(--color-brand-100);
+
+    --border: var(--color-ink-700);
+    --border-strong: var(--color-ink-400);
+    --input: var(--color-ink-600);
+    --ring: var(--color-brand-400);
+
+    --success: var(--color-green-500);
+    --success-soft: color-mix(in srgb, var(--color-green-500) 16%, transparent);
+    --success-foreground: var(--color-green-500);
+
+    --warning: var(--color-gold-500);
+    --warning-soft: color-mix(in srgb, var(--color-gold-500) 16%, transparent);
+    --warning-foreground: var(--color-gold-500);
+
+    --destructive: var(--color-red-600);
+    --destructive-soft: color-mix(in srgb, var(--color-red-500) 16%, transparent);
+    --destructive-foreground: var(--color-red-500);
+
+    --info: var(--color-brand-400);
+    --info-soft: color-mix(in srgb, var(--color-brand-500) 18%, transparent);
+    --info-foreground: var(--color-brand-300);
+
+    --overlay: color-mix(in srgb, var(--color-black) 70%, transparent);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-placeholder: var(--placeholder);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-selected: var(--selected);
+  --color-selected-foreground: var(--selected-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-info-foreground: var(--info-foreground);
+  --color-overlay: var(--overlay);
+}
