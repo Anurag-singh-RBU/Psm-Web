@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Geist Sans";
+  src: url("/fonts/geist-sans/geist-sans-v1.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial");
+  size-adjust: 100.94%;
+  ascent-override: 99.07%;
+  descent-override: 30.02%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Google Sans Code";
+  src: url("/fonts/google-sans-code/google-sans-code-v1.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Geist Sans", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
