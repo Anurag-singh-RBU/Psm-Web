@@ -1,0 +1,15 @@
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogContentContainer,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogHeaderContainer,
+  DialogIcon,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from "./Dialog.component";
