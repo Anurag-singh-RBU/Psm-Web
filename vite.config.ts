@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@ui": fileURLToPath(new URL("./src/components/ui", import.meta.url)),
+      "@containers": fileURLToPath(new URL("./src/containers", import.meta.url))
     },
   },
 });

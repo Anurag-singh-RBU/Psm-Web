@@ -88,7 +88,7 @@
     --selected: var(--color-brand-400);
     --selected-foreground: var(--color-ink-900);
 
-    --border: var(--color-ink-200);
+    --border: var(--color-ink-300);
     --border-strong: var(--color-ink-900);
     --input: var(--color-ink-300);
     --ring: var(--color-brand-600);

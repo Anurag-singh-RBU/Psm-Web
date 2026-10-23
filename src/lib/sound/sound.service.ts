@@ -21,24 +21,12 @@ const getSound = (name: SoundName) => {
   return sound;
 };
 
-export const preloadSounds = () => {
-  (Object.keys(SOUND_ASSETS) as SoundName[]).forEach((name) => {
-    getSound(name);
-  });
-};
-
 export const playSound = (name: SoundName) => {
   try {
+
     const sound = getSound(name);
+    sound.play();
 
-    if (sound.state() === "loaded") {
-      sound.play();
-      return;
-    }
-
-    sound.once("load", () => {
-      sound.play();
-    });
   } catch {
     return;
   }

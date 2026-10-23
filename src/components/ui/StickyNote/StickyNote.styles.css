@@ -1,0 +1,209 @@
+
+@layer components {
+  .sticky-note {
+    --paper: #fdeb8f;
+    --ink: #3d3208;
+    --ink-strong: #2b2205;
+    --pen: #2a2f8f;
+    --stamp: #c0392b;
+    --tape: 156 150 255;
+
+    position: relative;
+    width: 100%;
+    max-width: 21.25rem;
+    filter:
+      drop-shadow(0 0.0625rem 0.0625rem rgb(0 0 0 / 0.02))
+      drop-shadow(0 0.1875rem 0.25rem rgb(0 0 0 / 0.02));
+  }
+
+  .sticky-note[data-color="pink"] {
+    --paper: #ffc9d9;
+    --ink: #4a1627;
+    --ink-strong: #3a0f1e;
+    --pen: #8a1c4a;
+    --stamp: #8a1c4a;
+    --tape: 255 214 102;
+  }
+
+  .sticky-note[data-color="blue"] {
+    --paper: #bfe3ff;
+    --ink: #10304a;
+    --ink-strong: #0a2236;
+    --pen: #12408a;
+    --tape: 255 179 120;
+  }
+
+  .sticky-note[data-color="green"] {
+    --paper: #c9f2c7;
+    --ink: #12361c;
+    --ink-strong: #0b2612;
+    --pen: #14602f;
+    --tape: 156 150 255;
+  }
+
+  .sticky-note[data-color="orange"] {
+    --paper: #ffd7a8;
+    --ink: #4a2a06;
+    --ink-strong: #381d03;
+    --pen: #7a2a06;
+    --stamp: #8f2d0a;
+    --tape: 120 200 160;
+  }
+
+  .sticky-note[data-color="lavender"] {
+    --paper: #d9d4ff;
+    --ink: #25205a;
+    --ink-strong: #1a1642;
+    --pen: #3a2fa8;
+    --tape: 255 214 102;
+  }
+
+  .sticky-note__paper {
+    position: relative;
+    padding: clamp(1.5rem, 5vw, 2rem)
+      clamp(1rem, 4vw, 1.375rem)
+      clamp(1.25rem, 4vw, 1.625rem);
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(
+        180deg,
+        rgb(0 0 0 / 0.06) 0,
+        rgb(0 0 0 / 0) 1.75rem
+      ),
+      linear-gradient(
+        180deg,
+        rgb(255 255 255 / 0.45) 0,
+        rgb(255 255 255 / 0) 45%,
+        rgb(0 0 0 / 0.05) 100%
+      );
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 1.625rem),
+      calc(100% - 1.625rem) 100%,
+      0 100%
+    );
+  }
+
+  .sticky-note__title {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
+    font-family: var(--font-mono), monospace;
+    line-height: 1.05;
+    color: var(--pen);
+    letter-spacing: -0.02em;
+  }
+
+  .sticky-note__text {
+    font-size: clamp(0.8125rem, 2.5vw, 0.875rem);
+    line-height: 1.65;
+  }
+
+  .sticky-note__text strong {
+    font-weight: 700;
+    color: var(--ink-strong);
+  }
+
+  .sticky-note__time {
+    font-family: var(--font-mono), monospace;
+    font-size: clamp(0.8125rem, 2.5vw, 0.875rem);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-strong);
+  }
+
+  .sticky-note__tape {
+    position: absolute;
+    z-index: 2;
+    top: -1rem;
+    left: 50%;
+    width: clamp(5.5rem, 32%, 6.75rem);
+    height: clamp(1.5rem, 8vw, 2rem);
+    transform: translateX(-50%) rotate(-3deg);
+    background-color: rgb(var(--tape) / 0.66);
+    background-image:
+      linear-gradient(
+        90deg,
+        rgb(255 255 255 / 0.34),
+        rgb(255 255 255 / 0) 30%,
+        rgb(255 255 255 / 0.2) 66%,
+        rgb(255 255 255 / 0) 100%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgb(255 255 255 / 0.08) 0 0.125rem,
+        transparent 0.125rem 0.375rem
+      );
+    clip-path: polygon(
+      0 0, 4% 14%, 0 28%, 4% 43%,
+      0 57%, 4% 72%, 0 86%, 3% 100%,
+      97% 100%, 100% 86%, 96% 72%,
+      100% 57%, 96% 43%, 100% 28%,
+      96% 14%, 100% 0
+    );
+  }
+
+  .sticky-note__flap {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1.625rem;
+    height: 1.625rem;
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--paper), white 45%) 0%,
+      color-mix(in oklab, var(--paper), black 5%) 62%,
+      color-mix(in oklab, var(--paper), black 18%) 100%
+    );
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .sticky-note__stamp {
+    position: absolute;
+    right: clamp(1rem, 8%, 1.875rem);
+    bottom: clamp(1.25rem, 10%, 2.125rem);
+    padding: 0.25rem 0.625rem;
+    border: 0.15625rem solid var(--stamp);
+    border-radius: 0.375rem;
+    color: var(--stamp);
+    font-family: var(--font-mono), monospace;
+    font-size: clamp(0.8125rem, 3vw, 1rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transform: rotate(-9deg);
+    opacity: 0.82;
+    mix-blend-mode: multiply;
+    animation: sticky-thud 0.3s ease-out;
+  }
+}
+
+@keyframes sticky-stick {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem)
+      rotate(calc(var(--tilt, -1.6deg) - 4.4deg));
+  }
+}
+
+@keyframes sticky-thud {
+  from {
+    opacity: 0;
+    transform: rotate(-9deg) scale(1.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-note,
+  .sticky-note__stamp {
+    animation: none;
+    transition: none;
+  }
+
+  .sticky-note:hover {
+    transform: rotate(var(--tilt, -1.6deg));
+  }
+}

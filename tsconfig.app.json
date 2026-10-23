@@ -25,7 +25,8 @@
     /* Path aliases */
     "paths": {
       "@/*": ["./src/*"],
-      "@ui/*": ["./src/components/ui/*"]
+      "@ui/*": ["./src/components/ui/*"],
+      "@containers/*": ["./src/containers/*"],
     }
   },
   "include": ["src"]
