@@ -1,0 +1,120 @@
+@property --p {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 130%;
+}
+
+@layer components {
+    .cta-arrow {
+        --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        pointer-events: none;
+        position: absolute;
+        transform-origin: 20% 20%;
+        opacity: 0;
+        scale: 0.6;
+        rotate: -16deg;
+        translate: 14px 14px;
+
+        transition:
+            opacity 0.18s ease-in,
+            scale 0.2s ease-in,
+            rotate 0.2s ease-in,
+            translate 0.2s ease-in;
+    }
+
+    .cta-arrow[data-state='on'] {
+        opacity: 1;
+        scale: 1;
+        rotate: 0deg;
+        translate: 0 0;
+
+        transition:
+            opacity 0.25s ease-out,
+            scale 0.6s var(--spring),
+            rotate 0.6s var(--spring),
+            translate 0.6s var(--spring);
+    }
+
+    .cta-arrow[data-state='launch'] {
+        opacity: 0;
+        scale: 0.5;
+        rotate: 10deg;
+        translate: -30px -30px;
+
+        transition:
+            opacity 0.22s ease-in,
+            scale 0.28s ease-in,
+            rotate 0.28s ease-in,
+            translate 0.28s ease-in;
+    }
+
+    .cta-arrow__nudge {
+        width: 100%;
+        height: 100%;
+        animation: none;
+    }
+
+    .cta-arrow__draw {
+        width: 100%;
+        height: 100%;
+        -webkit-mask-image: linear-gradient(
+            to top left,
+            #000 calc(var(--p) - 14%),
+            transparent var(--p)
+        );
+        mask-image: linear-gradient(
+            to top left,
+            #000 calc(var(--p) - 14%),
+            transparent var(--p)
+        );
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+    }
+
+    .cta-arrow[data-state='on'] .cta-arrow__draw {
+        animation: cta-draw 0.75s cubic-bezier(0.55, 0.05, 0.25, 1) 0.05s both;
+    }
+
+    .cta-arrow::before,
+    .cta-arrow::after {
+        content: none;
+        display: none;
+    }
+}
+
+@keyframes cta-draw {
+    from {
+        --p: 0%;
+    }
+
+    to {
+        --p: 130%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cta-arrow,
+    .cta-arrow *,
+    .cta-arrow::before,
+    .cta-arrow::after {
+        animation: none !important;
+    }
+
+    .cta-arrow {
+        transition: opacity 0.15s !important;
+    }
+
+    .cta-arrow[data-state='on'] {
+        scale: 1;
+        rotate: 0deg;
+        translate: 0 0;
+    }
+
+    .cta-arrow::before,
+    .cta-arrow::after {
+        display: none;
+    }
+}

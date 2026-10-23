@@ -7,4 +7,12 @@ export type IconButtonProps = Omit<ComponentPropsWithoutRef<"button">, "aria-lab
   size?: "sm" | "md" | "lg";
   color?: CSSProperties["backgroundColor"];
   iconColor?: CSSProperties["color"];
+  sound?: "none" | "click";
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
+
+export const SIZES = {
+  sm: { button: "size-7", icon: "sm" },
+  md: { button: "size-8", icon: "md" },
+  lg: { button: "size-9", icon: "lg" },
+} as const;

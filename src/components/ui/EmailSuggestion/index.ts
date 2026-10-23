@@ -1,0 +1,1 @@
+export { EmailSuggestion } from './EmailSuggestion.component';

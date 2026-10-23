@@ -1,15 +1,14 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Toaster } from "sonner";
-import App from "./App.tsx";
-import { preloadSounds } from "./lib/sound/sound.service";
 import "./index.css";
 
-preloadSounds();
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { Toaster } from "sonner";
+
+import { router } from "./router/router.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
     <Toaster
       position="top-right"
       gap={8}
@@ -25,5 +24,6 @@ createRoot(document.getElementById("root")!).render(
         },
       }}
     />
+    <RouterProvider router={router} />
   </StrictMode>,
 );

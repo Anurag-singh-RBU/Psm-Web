@@ -6,7 +6,7 @@ export const buttonVariants = cva(
     "rounded-lg border border-transparent font-medium whitespace-nowrap select-none",
     "transition-[color, background-color, border-color] duration-400 ease-in-out",
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-    "disabled:cursor-not-allowed disabled:opacity-50",
+    "disabled:cursor-not-allowed disabled:opacity-60 disabled:shadow-none",
     "aria-busy:cursor-progress",
     "pointer-coarse:min-h-11",
     "motion-reduce:transition-none",
@@ -20,7 +20,7 @@ export const buttonVariants = cva(
           "border-border bg-transparent text-foreground enabled:hover:bg-foreground/5 enabled:active:bg-foreground/10",
         destructive:
           "bg-destructive border-0 text-primary-foreground enabled:hover:bg-destructive/90 enabled:hover:text-primary-foreground enabled:active:bg-destructive/80 enabled:active:text-primary-foreground",
-        ghost: "bg-transparent border-0 enabled:hover:bg-foreground/5 enabled:active:bg-foreground/10",
+        ghost: "bg-transparent border-0 p-0",
       },
       size: {
         sm: "min-h-8 px-3 text-sm",

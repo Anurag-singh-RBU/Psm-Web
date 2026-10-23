@@ -1,0 +1,1 @@
+export { SoftSpotlightBackground } from './Background.component';

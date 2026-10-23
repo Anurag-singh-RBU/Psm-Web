@@ -1,22 +1,27 @@
 import { forwardRef } from "react";
 import { Icon } from "@ui/Icon";
 import { cn } from "@/lib/utils/cn";
-import type { IconButtonProps } from "./IconButton.types";
-
-const sizes = {
-  sm: { button: "size-7", icon: "sm" },
-  md: { button: "size-8", icon: "md" },
-  lg: { button: "size-9", icon: "lg" },
-} as const;
+import { SIZES, type IconButtonProps } from "./IconButton.types";
+import { playSound } from "@/lib/sound/sound.service";
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ icon, size = "md", color, iconColor, style, className, type = "button", ...props }, ref) => {
-    const dimensions = sizes[size];
+  ({ icon, size = "md", color, iconColor, style, sound, onClick, className, type = "button", ...props }, ref) => {
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (sound == "click") {
+        playSound(sound);
+      }
+
+      onClick?.(event);
+    };
+
+    const dimensions = SIZES[size];
 
     return (
       <button
         ref={ref}
         type={type}
+        onClick={handleClick}
         style={{
           ...style,
           backgroundColor: color,
